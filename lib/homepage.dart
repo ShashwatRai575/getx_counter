@@ -24,22 +24,70 @@ class _HomePageState extends State<HomePage> {
       body: 
         
           
-          Obx(
-            () =>  Center(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height*0.1,
-                child: Column(
-                    children: <Widget>[
-                      const Text('You have pressed this button this many time'),
-                      Text(
-                        '${controller.count.value}',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                    ],
-                  
+          Column(
+            children: [
+              Obx(
+                () =>  Center(
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height*0.1,
+                    child: Column(
+                        children: <Widget>[
+                          const Text('You have pressed this button this many time'),
+                          Text(
+                            '${controller.count.value}',
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ],
+                      
+                    ),
+                  ),
                 ),
               ),
+
+             const Padding(padding: EdgeInsets.all(30)),
+
+             Center(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height*0.2,
+          child: Column(
+            children: <Widget>[
+              
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 18), backgroundColor: Colors.teal,
+                  ),
+                  onPressed: () {
+                Get.snackbar('GetX Snackbar', 'Yay! Awesome GetX Snackbar',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.tealAccent);
+                  },
+                  child: const Text('Show Snackbar',
+                  style: TextStyle(
+                    color: Colors.white
+                  ),)),
+           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+          textStyle: const TextStyle(fontSize: 18), backgroundColor: Colors.teal,
             ),
+            onPressed: () {
+          Get.defaultDialog(
+              title: 'GetX Alert',
+              middleText: 'Simple GetX alert',
+              textConfirm: 'Okay',
+              confirmTextColor: Colors.white,
+              textCancel: 'Cancel');
+            },
+            child: const Text('Show AlertDialog',
+            style: TextStyle(
+              color: Colors.white
+            ),
+            )),
+           
+            ]
+          ),
+        )
+),
+            ],
           ),
           
         
