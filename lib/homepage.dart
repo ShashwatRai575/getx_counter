@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import './counter_cotroller.dart';
+import 'newPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -87,6 +88,36 @@ class _HomePageState extends State<HomePage> {
           ),
         )
 ),
+
+Padding(
+  padding: const EdgeInsets.all(12.0),
+  child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20), backgroundColor: Colors.teal,
+        minimumSize: const Size.fromHeight(40),
+      ),
+      child: const Row(
+        children: [
+          Spacer(),
+          Text("Go to next screen",
+          style: TextStyle(
+            color: Colors.white
+          ),),
+          SizedBox(
+            width: 20,
+          ),
+          Expanded(
+              child: Icon(
+            Icons.arrow_right_alt,
+            size: 40,
+          ))
+        ],
+      ),
+      onPressed: () {
+        Get.to(() => const SecondPage());
+      }),
+),
+
             ],
           ),
           
